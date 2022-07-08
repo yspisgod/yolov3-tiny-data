@@ -45,14 +45,14 @@ print('Number of images:',number_of_images)
 
 with open('train.txt', mode='w') as f:
     for item in trainfiles:
-        f.write(item + "\n")
+        f.write(item + "\r\n")
 
 with open('valid.txt', mode='w') as f:
     for item in validfiles:
-        f.write(item + "\n")
+        f.write(item + "\r\n")
 with open('test.txt', mode='w') as f:
     for item in testfiles:
-        f.write(item + "\n")
+        f.write(item + "\r\n")
 print('Number of images used for training',str(len(trainfiles)))
 print('Number of images used for validation',str(len(validfiles)))
 print('Number of images used for testing',str(len(testfiles)))
