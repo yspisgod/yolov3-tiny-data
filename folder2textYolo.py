@@ -22,7 +22,7 @@ for filename in os.scandir(args.yolodataset):
     if ext != ".txt":
        extensions.append(ext)
        
-ext_dict=Counter(extensions)
+ext_dict=".jpg"
 extension = max(ext_dict,key=ext_dict.get)       
 print("Your image file extension is: " + extension)
 

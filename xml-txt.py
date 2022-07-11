@@ -7,11 +7,11 @@ classes = ["loudou"]
 
 
 def convert_annotation(image_id):
-    in_file = open('./train_ann/%s.xml'%(image_id))
+    in_file = open('./obj/%s.xml'%(image_id))
     tree=ET.parse(in_file)
     root = tree.getroot()
-    txt_file = open('./txt/%s.txt'%(image_id), 'w')
-    xml = open(r'{}'.format('./train_ann/%s.xml'%(image_id))).read()
+    txt_file = open('./obj/%s.txt'%(image_id), 'w')
+    xml = open(r'{}'.format('./obj/%s.xml'%(image_id))).read()
     sel = etree.HTML(xml)
     width = int(sel.xpath('//size/width/text()')[0])
     height = int(sel.xpath('//size/height/text()')[0])
@@ -27,7 +27,7 @@ def convert_annotation(image_id):
         txt_file.write(str(cls_id) + " "+ " ".join([str(a) for a in b]) + ' ')
 
 
-xmls = glob.glob('./train_ann/*.xml')
+xmls = glob.glob('./obj/*.xml')
 xmls_names = [x.split('\\')[-1].split('.xml')[0] for x in xmls]
 for image_id in xmls_names:
     convert_annotation(image_id)
